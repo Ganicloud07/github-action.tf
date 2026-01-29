@@ -25,18 +25,16 @@ jobs:
       - name: Terraform Init
         run: terraform init
 
-      # - name: Terraform Validate
-      #   run: terraform validate
+      - name: Terraform Validate
+        run: terraform validate
 
-      # - name: Terraform Plan
-      #   run: terraform plan -out=tfplan
+      - name: Terraform Plan
+        run: terraform plan -out=tfplan
 
-      # - name: Terraform Apply (Manual)
-      #   if: github.event_name == 'workflow_dispatch'
-      #   run: terraform apply -auto-approve tfplan
+      - name: Terraform Apply (Manual)
+        if: github.event_name == 'workflow_dispatch'
+        run: terraform apply -auto-approve tfplan
 
       # - name: Terraform Apply
       #   run: terraform apply -auto-approve tfplan
 
-      - name: Terraform Destroy
-        run: terraform destroy -auto-approve 
